@@ -83,13 +83,11 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="/"><img src="{{ asset('assets/imgs/logo/logo-new.png') }}" alt="logo"></a>
+                    <a href="/"><img src="{{ asset('assets/imgs/logo/logo.gif') }}" alt="logo"></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
-                        <form action="#">
-                            <input type="text" placeholder="{{ __('Search for items') }}">
-                        </form>
+                        @livewire('search-component')
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
@@ -152,7 +150,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="/"><img src="{{ asset('assets/imgs/logo/logo-new.png') }}" style="" alt="logo"></a>
+                    <a href="/"><img src="{{ asset('assets/imgs/logo/logo.gif') }}" alt="logo"></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">

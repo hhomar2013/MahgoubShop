@@ -7,6 +7,8 @@
 @import url(plugins/select2.min.css);
 @import url(plugins/slick.css);
 @import url(plugins/perfect-scrollbar.css);
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
 /*RESET*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -26,6 +28,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-family: 'Cairo' sans-serif !important;
   vertical-align: baseline;
 }
 
@@ -596,7 +599,7 @@ h4 {
 /*TYPOGRAPHY*/
 body {
   color: #4f5d77;
-  font-family: "Lato", sans-serif;
+  font-family: "Cairo", sans-serif;
   font-size: 14px;
   line-height: 24px;
   font-style: normal;
@@ -609,7 +612,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
   color: #222222;
   font-weight: 600;
   line-height: 1.2;
@@ -936,7 +939,7 @@ button.submit:hover, button[type='submit']:hover {
   border: 0;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 .btn.btn-brush i, .button.btn-brush i {
@@ -2140,7 +2143,7 @@ label {
   border-right-color: currentcolor;
   border-bottom-color: currentcolor;
   border-left-color: currentcolor;
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
   font-weight: 600;
   line-height: 1;
 }
@@ -2229,7 +2232,7 @@ label {
 }
 
 .tab-header .view-more {
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
   font-size: 13px;
   font-weight: 700;
   display: -webkit-box;
@@ -2465,7 +2468,7 @@ label {
 
 .page-header .breadcrumb span::before {
   content: "\f111";
-  font-family: "uicons-regular-straight"  !important;
+  font-family: "Cairo"  !important;
   display: inline-block;
   font-size: 9px;
 }
@@ -5728,7 +5731,7 @@ h6.post-title {
   line-height: 1;
   padding: 10px 20px;
   background-color: #F15412;
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
   border: 2px solid #F15412;
 }
 
@@ -7299,7 +7302,7 @@ span.fi-rs-apps {
   color: #F15412;
   position: relative;
   font-size: 13px;
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 .categori-dropdown-wrap .more_categories::before {
@@ -7556,7 +7559,7 @@ span.fi-rs-apps {
   border: 0;
   font-size: 14px;
   padding: 0 30px;
-  font-family: "Spartan", sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 .download-app {
@@ -8456,7 +8459,7 @@ span.fi-rs-apps {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 .mtb-0 {
   margin: 0;
@@ -9905,7 +9908,7 @@ span.fi-rs-apps {
 }
 
 .search-style-1 form {
-	width: 75%;	
+	width: 75%;
 }
 .header-info-right a{
     padding-left:20px;
@@ -9942,6 +9945,6 @@ span.fi-rs-apps {
 {
 	.mob-app{
 		padding-left:3%;
-	}  
+	}
 }
 

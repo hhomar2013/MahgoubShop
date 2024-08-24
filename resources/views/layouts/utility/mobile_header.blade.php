@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="mobile-header-content-area">
-            <div class="mobile-search search-style-3 mobile-header-border">
+            <div class="mobile-search search-style-3 mobile-header-border">1
                 <form action="#">
                     <input type="text" placeholder="Search for items…">
                     <button type="submit"><i class="fi-rs-search"></i></button>
