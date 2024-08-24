@@ -2,6 +2,8 @@
     "Home": "الرئيسية",
     "Dashboard":"لوحة التحكم",
     "Log In" :"تسجيل الدخول",
+    "login":"دخول",
+    "Logout":"تسجيل خروج",
     "Sign Up" :"تسجيل حساب",
     "My Account" :"حسابي الشخصي",
     "Shop" :"تسوق الأن",
@@ -19,6 +21,10 @@
     "Featured" :"مميز",
     "Popular" :"شائع",
     "New added" :"مضاف جديد",
-    "No results" :"لا يوجد بيانات"
-
+    "No results" :"لا يوجد بيانات",
+    "Remember me" :"تذكرني",
+    "Email":"البريد الإلكتروني",
+    "Password":"كلمة السر",
+    "Forgot password?":"نسيت كلمة السر؟",
+    "These credentials do not match our records.":"هذه البيانات لا تتطابق مع سجلاتنا."
 }

@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Auth\LoginComponent;
+use App\Http\Livewire\Auth\LogoutComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +40,20 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-        Auth::routes();
+        // Auth::routes();
+        Route::middleware(['guest'])->group(function(){
+            Route::get('/login',LoginComponent::class)->name('login');
+            Route::get('/register',LoginComponent::class)->name('register');
+            Route::get('/logout',LogoutComponent::class)->name('logout');
+        });
+
+        Route::middleware(['auth'])->group(function(){
+            Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+        });
+
+        Route::middleware(['authAdmin'])->group(function(){
+            Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('Admin.dashboard');
+        });
 
         Route::get('/',HomeComponent::class)->name('home');
         Route::get('/shop',ShopComponent::class)->name('shop');

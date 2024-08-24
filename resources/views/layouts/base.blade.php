@@ -14,6 +14,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/imgs/theme/favicon.png') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"></head>
+<link rel="stylesheet" href="{{ asset('assets/css/loader.css') }}"></head>
     @if(App::getLocale() == 'ar')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

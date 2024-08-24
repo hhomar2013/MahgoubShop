@@ -2468,7 +2468,7 @@ label {
 
 .page-header .breadcrumb span::before {
   content: "\f111";
-  font-family: "Cairo"  !important;
+  font-family: "uicons-regular-straight"  !important;
   display: inline-block;
   font-size: 9px;
 }

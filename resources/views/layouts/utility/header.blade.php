@@ -14,7 +14,12 @@
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                     <li>
                                         <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                            <img src="{{ $localeCode == 'ar' ? 'assets/imgs/theme/egy.png' :'assets/imgs/theme/eng.png' }}" alt=""> {{ $properties['native'] }}
+                                           @if ($localeCode == 'ar')
+                                                <img src="{{ asset('assets/imgs/theme/egy.png') }}" alt=""> {{ $properties['native'] }}
+                                           @else
+                                                <img src="{{ asset('assets/imgs/theme/eng.png') }}" alt=""> {{ $properties['native'] }}
+                                           @endif
+
                                         </a>
                                     </li>
                                 @endforeach
@@ -38,42 +43,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
-                        <ul>
-                            @guest
-                            {{-- @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
-
-                            <li><i class="fi-rs-key"></i><a href="{{ route('login') }}">{{ __('Log In') }} </a>  / <a href="{{ route('register') }}">{{ __('Sign Up') }}</a></li>
-
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                        </ul>
+                        @livewire('auth.logout-component')
                     </div>
                 </div>
             </div>
@@ -400,16 +370,27 @@
                                 </li>
                                 <li><a href="blog.html">{{ __('Blog') }} </a></li>
                                 <li><a href="contact.html">{{ __('Contact us') }}</a></li>
-                                <li><a href="#">{{ __('My Account') }}<i class="fi-rs-angle-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Products</a></li>
-                                        <li><a href="#">Categories</a></li>
-                                        <li><a href="#">Coupons</a></li>
-                                        <li><a href="#">Orders</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Logout</a></li>
-                                    </ul>
+                              @auth
+                              <li><a href="#">{{ __('My Account') }}<i class="fi-rs-angle-down"></i></a> @endauth
+
+                                    @auth
+                                        @if (Auth::user()->utype == 'ADM')
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('Admin.dashboard') }}">Dashboard</a></li>
+                                            <li><a href="#">Products</a></li>
+                                            <li><a href="#">Categories</a></li>
+                                            <li><a href="#">Coupons</a></li>
+                                            <li><a href="#">Orders</a></li>
+                                            <li><a href="#">Customers</a></li>
+                                            <li><a href="#">Logout</a></li>
+                                        </ul>
+                                        @else
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                                        </ul>
+                                        @endif
+                                    @endauth
+
                                 </li>
                             </ul>
                         </nav>
