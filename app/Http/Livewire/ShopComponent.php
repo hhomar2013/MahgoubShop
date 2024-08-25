@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class ShopComponent extends Component
 {
-
+    protected $paginationTheme = 'bootstrap';
     use WithPagination;
     public function render()
     {

@@ -5,6 +5,11 @@
     "login":"دخول",
     "Logout":"تسجيل خروج",
     "Sign Up" :"تسجيل حساب",
+    "Register" :"سجل",
+    "Submit" :"إرسل",
+    "Create an Account":"إنشاء حساب",
+    "Sign in now" :"سجل دخول الأن",
+    "Already have an account?" :"لديك حساب بالفعل?",
     "My Account" :"حسابي الشخصي",
     "Shop" :"تسوق الأن",
     "Contact us":"أتصل بنا",
@@ -23,8 +28,10 @@
     "New added" :"مضاف جديد",
     "No results" :"لا يوجد بيانات",
     "Remember me" :"تذكرني",
+    "Name":"الأسم بالكامل",
     "Email":"البريد الإلكتروني",
     "Password":"كلمة السر",
     "Forgot password?":"نسيت كلمة السر؟",
-    "These credentials do not match our records.":"هذه البيانات لا تتطابق مع سجلاتنا."
+    "These credentials do not match our records.":"هذه البيانات لا تتطابق مع سجلاتنا.",
+    "Categories" :"الأقسام"
 }

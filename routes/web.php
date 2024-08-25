@@ -4,8 +4,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Auth\LogoutComponent;
+use App\Http\Livewire\Auth\RegisterComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
@@ -43,8 +45,7 @@ Route::group(
         // Auth::routes();
         Route::middleware(['guest'])->group(function(){
             Route::get('/login',LoginComponent::class)->name('login');
-            Route::get('/register',LoginComponent::class)->name('register');
-            Route::get('/logout',LogoutComponent::class)->name('logout');
+            Route::get('/register',RegisterComponent::class)->name('register');
         });
 
         Route::middleware(['auth'])->group(function(){
@@ -59,5 +60,6 @@ Route::group(
         Route::get('/shop',ShopComponent::class)->name('shop');
         Route::get('/cart',CartComponent::class)->name('cart');
         Route::get('/checkout',CheckoutComponent::class)->name('checkout');
-
+        Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
+        Route::get('/logout',LogoutComponent::class)->name('logout');
     });
