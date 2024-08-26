@@ -33,5 +33,15 @@
     "Password":"كلمة السر",
     "Forgot password?":"نسيت كلمة السر؟",
     "These credentials do not match our records.":"هذه البيانات لا تتطابق مع سجلاتنا.",
-    "Categories" :"الأقسام"
+    "Categories" :"الأقسام",
+    "Image":"",
+    "Price":"",
+    "Quantity":"",
+    "Subtotal":"",
+    "Remove":"",
+    "Cart Totals":"",
+    "Shipping":"",
+    "Total":"",
+    "Update Cart":"",
+    "Continue Shopping":""
 }

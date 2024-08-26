@@ -58,7 +58,7 @@ Route::group(
 
         Route::get('/',HomeComponent::class)->name('home');
         Route::get('/shop',ShopComponent::class)->name('shop');
-        Route::get('/cart',CartComponent::class)->name('cart');
+        Route::get('/cart',CartComponent::class)->name('shop.cart');
         Route::get('/checkout',CheckoutComponent::class)->name('checkout');
         Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');
         Route::get('/logout',LogoutComponent::class)->name('logout');
