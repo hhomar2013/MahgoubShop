@@ -11,11 +11,16 @@ class ShopComponent extends Component
 {
     protected $paginationTheme = 'bootstrap';
     use WithPagination;
+    public $pageSize=12;
 
     public function store($product_id,$product_name,$price){
         Cart::add($product_id,$product_name,1,$price)->associate('\App\Models\Product');
         session()->flash('success_massage','Item add in cart');
         return redirect()->route('shop.cart');
+    }
+
+    public function changePageSize($size){
+        $this->pageSize = $size;
     }
 
     public function render()

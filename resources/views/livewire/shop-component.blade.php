@@ -23,16 +23,16 @@
                                             <span><i class="fi-rs-apps"></i>Show:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                            <span> {{ $pageSize }} <i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">50</a></li>
-                                            <li><a href="#">100</a></li>
-                                            <li><a href="#">150</a></li>
-                                            <li><a href="#">200</a></li>
-                                            <li><a href="#">All</a></li>
+                                            <li><a class="{{ $pageSize ==12 ? 'active' : ''}}" href="#" wire:click.prevent="changePageSize(12)">12</a></li>
+                                            <li><a class="{{ $pageSize ==15 ? 'active' : ''}}"  href="#" wire:click.prevent="changePageSize(15)">15</a></li>
+                                            <li><a class="{{ $pageSize ==25 ? 'active' : ''}}"  href="#" wire:click.prevent="changePageSize(25)">25</a></li>
+                                            <li><a class="{{ $pageSize ==32 ? 'active' : ''}}"  href="#" wire:click.prevent="changePageSize(32)">32</a></li>
+                                            {{-- <li><a href="{{ $pageSize ==12 ? 'active' : ''}}">All</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
