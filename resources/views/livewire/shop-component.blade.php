@@ -42,16 +42,16 @@
                                             <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span> Featured <i class="fi-rs-angle-small-down"></i></span>
+                                            <span> Defualt Sorting <i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">Featured</a></li>
-                                            <li><a href="#">Price: Low to High</a></li>
-                                            <li><a href="#">Price: High to Low</a></li>
-                                            <li><a href="#">Release Date</a></li>
-                                            <li><a href="#">Avg. Rating</a></li>
+                                            <li><a class="{{ $orderBy == 'Defualt Sorting' ? 'active' :'' }}" wire:click.prevent="changeOrderBy('Defualt Sorting')">Defualt Sorting</a></li>
+                                            <li><a class="{{ $orderBy == 'Price: Low to High' ? 'active' :'' }}" wire:click.prevent="changeOrderBy('Price: Low to High')">Price: Low to High</a></li>
+                                            <li><a class="{{ $orderBy == 'Price: High to Low' ? 'active' :'' }}" wire:click.prevent="changeOrderBy('Price: High to Low')">Price: High to Low</a></li>
+                                            <li><a class="{{ $orderBy == 'Sort By Newness' ? 'active' :'' }}" wire:click.prevent="changeOrderBy('Sort By Newness')">Sort By Newness</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -121,15 +121,11 @@
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">{{ __('Categories') }}</h5>
                             <ul class="categories">
-                                <li><a href="shop.html">Shoes & Bags</a></li>
-                                <li><a href="shop.html">Blouses & Shirts</a></li>
-                                <li><a href="shop.html">Dresses</a></li>
-                                <li><a href="shop.html">Swimwear</a></li>
-                                <li><a href="shop.html">Beauty</a></li>
-                                <li><a href="shop.html">Jewelry & Watch</a></li>
-                                <li><a href="shop.html">Accessories</a></li>
+                                @foreach ($category as $categories)
+                                <li><a>{{ $categories->name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <!-- Fillter By Price -->

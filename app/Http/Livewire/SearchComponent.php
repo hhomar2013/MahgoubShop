@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use App\Models\tages;
 use Livewire\Component;
 
@@ -22,7 +23,7 @@ class SearchComponent extends Component
 
     public function render()
     {
-        $this->search = tages::query()->where('name','like','%'. $this->query .'%')->get();
+        $this->search = Product::query()->where('name','like','%'. $this->query .'%')->get();
         return view('livewire.search-component',['search'=>$this->search]);
     }
 }
