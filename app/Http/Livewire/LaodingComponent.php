@@ -7,10 +7,13 @@ use Livewire\Component;
 class LaodingComponent extends Component
 {
     public $target;
+    protected $listeners = ['refreshComponent'=>'$refresh'];
+    // public function mount($target){
+    //     $this->target =$target;
+    // }
+
     public function render()
     {
-        return view('livewire.laoding-component',[
-            'target'=>$this->target
-        ]);
+        return view('livewire.laoding-component');
     }
 }

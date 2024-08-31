@@ -1,4 +1,4 @@
-<div  wire:ignore wire:init="init">
+<div>
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -14,11 +14,7 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{ $products->total() }}</strong> items for you!</p>
-                                @livewire('laoding-component')
-                                {{-- <div wire:loading class="spinner-grow  text-warning text-sm" role="status">
-                                    <span class="visually-hidden"></span>
-                                </div> --}}
+                                <p> We found <strong class="text-brand">{{ $products->count() }}</strong> items for you From <b class="text-danger">{{ $category_name }}</b></p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
@@ -133,7 +129,7 @@
                             <h5 class="section-title style-1 mb-30 wow fadeIn animated">{{ __('Categories') }}</h5>
                             <ul class="categories">
                                 @foreach ($category as $categories)
-                                <li><a href="{{ route('product.category',['slug'=>$categories->slug]) }}">{{ $categories->name }}</a></li>
+                                <li><a class="{{ $categories->slug == $slug ? 'text-danger' : '' }}" href="{{ route('product.category',['slug'=>$categories->slug]) }}">{{ $categories->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

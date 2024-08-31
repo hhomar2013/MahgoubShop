@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore wire:init="init">
 
     <main class="main">
         <section class="home-slider position-relative pt-50">
