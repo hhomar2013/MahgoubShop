@@ -27,6 +27,7 @@
     "Popular" :"شائع",
     "New added" :"مضاف جديد",
     "No results" :"لا يوجد بيانات",
+    "No results in your wishlist" :"لا يوجد منتجات مفضلة لديك",
     "Remember me" :"تذكرني",
     "Name":"الأسم بالكامل",
     "Email":"البريد الإلكتروني",
@@ -39,9 +40,12 @@
     "Quantity":"",
     "Subtotal":"",
     "Remove":"",
-    "Cart Totals":"",
-    "Shipping":"",
-    "Total":"",
-    "Update Cart":"",
-    "Continue Shopping":""
+    "Cart Totals":"إجمالي العربة",
+    "Shipping":"الشحن",
+    "Total":"الإجمالــي",
+    "Update Cart":"تحديث العربة",
+    "Continue Shopping":"تابع التسوق",
+    "WishList" :"المفضلة",
+    "Actions" :"الإجرائات",
+    "Add New" :"إضافة جديد"
 }

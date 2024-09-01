@@ -59,7 +59,14 @@
                     <div class="search-style-1">
                         @livewire('search-component')
                     </div>
-                        @livewire('cart-icon-component')
+                    <div class="header-action-right">
+                        <div class="header-action-2">
+                            @livewire('wish-list-icon-component')
+                            @livewire('cart-icon-component')
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -324,9 +331,8 @@
                                     @auth
                                         @if (Auth::user()->utype == 'ADM')
                                         <ul class="sub-menu">
-                                            <li><a href="{{ route('Admin.dashboard') }}">Dashboard</a></li>
-                                            <li><a href="#">Products</a></li>
-                                            <li><a href="#">Categories</a></li>
+                                            <li><a href="{{ route('Admin.dashboard') }}">{{ __('Dashboard') }}</a></li>
+                                            <li><a href="{{ route('Admin.categories') }}">{{ __('Categories') }}</a></li>
                                             <li><a href="#">Coupons</a></li>
                                             <li><a href="#">Orders</a></li>
                                             <li><a href="#">Customers</a></li>
@@ -350,55 +356,8 @@
                 <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
-                        <div class="header-action-icon-2">
-                            <a href="shop-wishlist.php">
-                                <img alt="Surfside Media" src="{{ asset('assets/imgs/theme/icons/icon-heart.svg') }}">
-                                <span class="pro-count white">4</span>
-                            </a>
-                        </div>
-                        <div class="header-action-icon-2">
-                            <a class="mini-cart-icon" href="{{ route('shop.cart') }}">
-                                <img alt="Surfside Media" src="{{ asset('assets/imgs/theme/icons/icon-cart.svg') }}">
-                                <span class="pro-count white">2</span>
-                            </a>
-                            <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                <ul>
-                                    <li>
-                                        <div class="shopping-cart-img">
-                                            <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
-                                            <h3><span>1 × </span>$800.00</h3>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="shopping-cart-img">
-                                            <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-4.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
-                                            <h3><span>1 × </span>$3500.00</h3>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="shopping-cart-footer">
-                                    <div class="shopping-cart-total">
-                                        <h4>Total <span>$383.00</span></h4>
-                                    </div>
-                                    <div class="shopping-cart-button">
-                                        <a href="{{ route('shop.cart') }}">View cart</a>
-                                        <a href="{{ route('checkout') }}">Checkout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @livewire('wish-list-icon-component')
+                        @livewire('cart-icon-component')
                         <div class="header-action-icon-2 d-block d-lg-none">
                             <div class="burger-icon burger-icon-white">
                                 <span class="burger-icon-top"></span>

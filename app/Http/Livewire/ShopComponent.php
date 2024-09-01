@@ -15,6 +15,9 @@ class ShopComponent extends Component
     public $pageSize=12;
     public $orderBy= "Defualt Sorting";
 
+    public $min_value = 0;
+    public $max_value = 1000;
+
     public bool $loadData = false;
 
     public function init()
@@ -23,8 +26,9 @@ class ShopComponent extends Component
     }
 
     public function store($product_id,$product_name,$price){
-        Cart::add($product_id,$product_name,1,$price)->associate('\App\Models\Product');
+        Cart::instance('cart')->add($product_id,$product_name,1,$price)->associate('\App\Models\Product');
         session()->flash('success_massage','Item add in cart');
+        // $this->emitTo('cart-icon-component','refreshComponent');
         return redirect()->route('shop.cart');
     }
 
@@ -36,19 +40,36 @@ class ShopComponent extends Component
         $this->orderBy = $order;
     }
 
+    public function addToWishList($product_id,$product_name,$product_price){
+        Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        $this->emitTo('wish-list-icon-component','refreshComponent');
+    }
+
+
+    public function removeFromWishList($product_id){
+        foreach(Cart::instance('wishlist')->content() as $witem){
+            if($witem->id == $product_id){
+                Cart::instance('wishlist')->remove($witem->rowId);
+                $this->emitTo('wish-list-icon-component','refreshComponent');
+                return;
+            }
+        }
+
+    }
+
     public function render()
     {
         if($this->orderBy == 'Price: Low to High'){
 
-            $products = Product::query()->orderBy('regular_price','asc')->paginate($this->pageSize);
+            $products = Product::query()->whereBetween('regular_price',[$this->min_value,$this->max_value])->orderBy('regular_price','asc')->paginate($this->pageSize);
 
         }else if($this->orderBy == 'Price: High to Low'){
-            $products = Product::query()->orderBy('regular_price','desc')->paginate($this->pageSize);
+            $products = Product::query()->whereBetween('regular_price',[$this->min_value,$this->max_value])->orderBy('regular_price','desc')->paginate($this->pageSize);
 
         }else if($this->orderBy == 'Sort By Newness'){
-            $products = Product::query()->orderBy('created_at','desc')->paginate($this->pageSize);
+            $products = Product::query()->whereBetween('regular_price',[$this->min_value,$this->max_value])->orderBy('created_at','desc')->paginate($this->pageSize);
         }else{
-            $products = Product::query()->paginate($this->pageSize);
+            $products = Product::query()->whereBetween('regular_price',[$this->min_value,$this->max_value])->paginate($this->pageSize);
         }
         $this->emitTo('laoding-component','refreshComponent');
         // $products = Product::query()->paginate($this->pageSize);

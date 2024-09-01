@@ -7,30 +7,29 @@ use Livewire\Component;
 
 class CartComponent extends Component
 {
-
     public function increaseQty($rowId){
-        $product  = Cart::get($rowId);
+        $product  = Cart::instance('cart')->get($rowId);
         $qty = $product->qty +1;
-        Cart::update($rowId,$qty);
+        Cart::instance('cart')->update($rowId,$qty);
         $this->emitTo('cart-icon-component','refreshComponent');
     }
 
     public function decreaseQty($rowId){
-        $product  = Cart::get($rowId);
+        $product  = Cart::instance('cart')->get($rowId);
         $qty = $product->qty - 1;
-        Cart::update($rowId,$qty);
+        Cart::instance('cart')->update($rowId,$qty);
         $this->emitTo('cart-icon-component','refreshComponent');
     }
 
 
     public function deleteItem($rowId){
-        Cart::remove($rowId);
+        Cart::instance('cart')->remove($rowId);
         session()->flash('success_massage','Item Has been remove!');
         $this->emitTo('cart-icon-component','refreshComponent');
     }
 
     public function clearAll(){
-        Cart::destroy();
+        Cart::instance('cart')->destroy();
         session()->flash('success_massage','Item Has been remove!');
         $this->emitTo('cart-icon-component','refreshComponent');
     }

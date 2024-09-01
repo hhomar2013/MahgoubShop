@@ -5,7 +5,8 @@
                 /  <a href="{{ route('register') }}">{{ __('Sign Up') }}</a></li>
         @else
         <li>
-            <i class="fi-rs-user"></i>
+
+            <i class="fi fi-rs-user"></i>
             <a class="text-primary">
                 {{ Str::ucfirst(Auth::user()->name) }}
             </a> /
@@ -15,7 +16,8 @@
             {{ __('Logout') }}
             </a> --}}
             {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form> --}}
-            <a href="/logout" wire:click.prevent="logout">{{ __('Logout') }}</a>
+
+            <a href="/logout" wire:click.prevent="logout">{{ __('Logout') }} <i class="fi fi-rs-sign-out"></i></a>
         </li>
 
             {{-- <li class="nav-item dropdown">

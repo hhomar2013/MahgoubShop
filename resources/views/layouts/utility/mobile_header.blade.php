@@ -42,9 +42,9 @@
                 <!-- mobile menu start -->
                 <nav>
                     <ul class="mobile-menu">
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our Collections</a>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="/">{{ __('Home') }}</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
+                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">{{ __('Our Collections') }}</a>
                             <ul class="dropdown">
                                 <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
                                     <ul class="dropdown">
@@ -72,13 +72,32 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a></li>
-                        <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
+                        {{-- <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a></li> --}}
+                        <li class="menu-item-has-children"><span class="menu-expand"></span>
+                            <a class="language-dropdown-active" href="#"> <i class="fi-rs-world">
+                            </i> {{ LaravelLocalization::getCurrentLocaleNative()  }}
+                            </a>
                             <ul class="dropdown">
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">German</a></li>
-                                <li><a href="#">Spanish</a></li>
+                                <li>
+                                    <ul class="language-dropdown">
+                                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        <li>
+                                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                               @if ($localeCode == 'ar')
+                                                    {{-- <img src="{{ asset('assets/imgs/theme/egy.png') }}" alt="" class="rounded-pill w-25"> --}}
+                                                     {{ $properties['native'] }}
+                                               @else
+                                                    {{-- <img src="{{ asset('assets/imgs/theme/eng.png') }}" alt="" class="rounded-pill w-25">  --}}
+                                                    {{ $properties['native'] }}
+                                               @endif
+
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                    </ul>
+
+
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -90,10 +109,7 @@
                     <a href="contact.html"> Our location </a>
                 </div>
                 <div class="single-mobile-header-info">
-                    <a href="login.html">Log In </a>
-                </div>
-                <div class="single-mobile-header-info">
-                    <a href="register.html">Sign Up</a>
+                    @livewire('auth.logout-component')
                 </div>
                 <div class="single-mobile-header-info">
                     <a href="#">(+1) 0000-000-000 </a>
