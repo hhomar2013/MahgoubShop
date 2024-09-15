@@ -14,6 +14,7 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\User\UserProfileComponent;
 use App\Http\Livewire\WishListComponent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,7 @@ Route::group(
 
         Route::middleware(['auth'])->group(function(){
             Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
+            Route::get('/user/account',UserProfileComponent::class)->name('user.account');
         });
 
         Route::middleware(['authAdmin'])->group(function(){

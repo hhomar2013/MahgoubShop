@@ -6,10 +6,10 @@
         @else
         <li>
 
-            <i class="fi fi-rs-user"></i>
+            {{-- <i class="fi fi-rs-user"></i>
             <a class="text-primary">
                 {{ Str::ucfirst(Auth::user()->name) }}
-            </a> /
+            </a> / --}}
             {{-- <a href="{{ route('logout') }}" class="text-danger"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
@@ -17,7 +17,7 @@
             </a> --}}
             {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form> --}}
 
-            <a href="/logout" wire:click.prevent="logout">{{ __('Logout') }} <i class="fi fi-rs-sign-out"></i></a>
+            <a href="/logout" wire:click.prevent="logout">{{ __('Logout') }}</a>
         </li>
 
             {{-- <li class="nav-item dropdown">

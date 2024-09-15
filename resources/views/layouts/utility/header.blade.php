@@ -326,11 +326,11 @@
                                 <li><a href="blog.html">{{ __('Blog') }} </a></li>
                                 <li><a href="contact.html">{{ __('Contact us') }}</a></li>
                               @auth
-                              <li><a href="#">{{ __('My Account') }}<i class="fi-rs-angle-down"></i></a> @endauth
-
+                              <li><i class="fi fi-rs-user"></i> <a href="#">{{ Str::ucfirst(Auth::user()->name) }}<i class="fi-rs-angle-down"></i></a> @endauth
                                     @auth
                                         @if (Auth::user()->utype == 'ADM')
                                         <ul class="sub-menu">
+                                            <li><a href="{{ route('Admin.dashboard') }}">{{ __('My Account') }}</a></li>
                                             <li><a href="{{ route('Admin.dashboard') }}">{{ __('Dashboard') }}</a></li>
                                             <li><a href="{{ route('Admin.categories') }}">{{ __('Categories') }}</a></li>
                                             <li><a href="#">Coupons</a></li>
@@ -340,7 +340,9 @@
                                         </ul>
                                         @else
                                         <ul class="sub-menu">
+                                            <li><a href="{{ route('user.account') }}">{{ __('My Account') }}</a></li>
                                             <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                                            <li><a href="#">Logout</a></li>
                                         </ul>
                                         @endif
                                     @endauth
